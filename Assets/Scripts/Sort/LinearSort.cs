@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Assets.Scripts.Interfaces;
+using Assets.Scripts.Data;
 
 namespace Assets.Scripts.Sort
 {

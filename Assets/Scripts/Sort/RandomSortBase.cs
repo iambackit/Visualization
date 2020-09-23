@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Interfaces;
+using Assets.Scripts.Data;
 
 public class RandomSortBase : ISort
 {
