@@ -3,6 +3,7 @@ using Assets.Scripts.GUI;
 using Assets.Scripts.Computing;
 using Assets.Scripts.Sort;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 namespace Assets.Scripts.Controllers
 {
@@ -35,12 +36,14 @@ namespace Assets.Scripts.Controllers
 
         public void RandomSorting()
         {
-            this._randomSortController.Sort(this._circles, this._optionChanger.SelectedShuffle);
+            if (SortBase.IsFinished)
+                this._randomSortController.Sort(this._circles, this._optionChanger.SelectedShuffle);
         }
 
         public void Sort()
         {
-            StartCoroutine(this._sortController.Sort(this._circles, this._optionChanger.SelectedAlgorithm));
+            if (SortBase.IsFinished)
+                StartCoroutine(this._sortController.Sort(this._circles, this._optionChanger.SelectedAlgorithm));
         }
 
         private void ValueChangeCheck()

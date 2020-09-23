@@ -10,6 +10,8 @@ namespace Assets.Scripts.Sort
     {
         public override IEnumerator Sort(GameObject[] objects)
         {
+            IsFinished = false;
+
             for (int i = 0; i < objects.Length - 1; i++)
             {
                 GameObject prev = objects[i];
@@ -42,6 +44,8 @@ namespace Assets.Scripts.Sort
 
                 prev.GetComponent<Circle>().Color = savedPrevColor;
             }
+
+            IsFinished = true;
         }
     }
 }
