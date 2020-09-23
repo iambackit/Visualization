@@ -15,6 +15,10 @@ namespace Assets.Scripts.Sort
                 {
                     GameObject prev = objects[i];
                     GameObject next = objects[i + 1];
+                    Color savedPrevColor = prev.GetComponent<Circle>().Color;
+                    Color savedNextColor = next.GetComponent<Circle>().Color;
+                    prev.GetComponent<Circle>().Color = Color.white;
+                    next.GetComponent<Circle>().Color = Color.white;
 
                     int prevPlace = prev.GetComponent<Circle>().Place;
                     int nextPlace = next.GetComponent<Circle>().Place;
@@ -30,7 +34,9 @@ namespace Assets.Scripts.Sort
                         next.GetComponent<Circle>().Place = tmpPlace;
                     }
 
-                    yield return new WaitForSeconds(.0001f);
+                    yield return new WaitForSeconds(.000001f);
+                    prev.GetComponent<Circle>().Color = savedPrevColor;
+                    next.GetComponent<Circle>().Color = savedNextColor;
                 }
             }
         }

@@ -2,6 +2,7 @@
 using Assets.Scripts.Interfaces;
 using Assets.Scripts.Data;
 using System.Collections;
+using UnityEngine.UIElements;
 
 namespace Assets.Scripts.Sort
 {
@@ -12,9 +13,14 @@ namespace Assets.Scripts.Sort
             for (int i = 0; i < objects.Length - 1; i++)
             {
                 GameObject prev = objects[i];
+                Color savedPrevColor = prev.GetComponent<Circle>().Color;
+                prev.GetComponent<Circle>().Color = Color.white;
+
                 for (int j = i + 1; j < objects.Length; j++)
                 {
                     GameObject next = objects[j];
+                    Color savedNextColor = next.GetComponent<Circle>().Color;
+                    next.GetComponent<Circle>().Color = Color.white;
 
                     int prevPlace = prev.GetComponent<Circle>().Place;
                     int nextPlace = next.GetComponent<Circle>().Place;
@@ -30,8 +36,11 @@ namespace Assets.Scripts.Sort
                         next.GetComponent<Circle>().Place = tmpPlace;
                     }
 
-                    yield return new WaitForSeconds(.0001f);
+                    yield return new WaitForSeconds(.000001f);
+                    next.GetComponent<Circle>().Color = savedNextColor;
                 }
+
+                prev.GetComponent<Circle>().Color = savedPrevColor;
             }
         }
     }
