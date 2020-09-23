@@ -1,13 +1,12 @@
-﻿using Assets.Scripts.Interfaces;
-using Assets.Scripts.Enums;
-using Assets.Scripts.Shuffle;
+﻿using Assets.Scripts.Shuffle;
+using Assets.Scripts.Sort;
 using UnityEngine;
 
-namespace Assets.Scripts.Sort
+namespace Assets.Scripts.Controllers
 {
-    class RandomSortController
+    class ShuffleController
     {
-        public RandomSortController()
+        public ShuffleController()
         {
             this._almostSort = new AlmostSort();
             this._randomSort = new RandomSort();

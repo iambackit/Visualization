@@ -1,17 +1,17 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Data;
 using Assets.Scripts.Interfaces;
-using Assets.Scripts.Data;
+using UnityEngine;
 
 namespace Assets.Scripts.Sort
 {
-    public class LinearSort : ISort
+    class BubbleSort : ISort
     {
         public void Sort(GameObject[] objects)
         {
-            for (int i = 0; i < objects.Length - 1; i++)
+            for (int i = 0; i < objects.Length - 2; i++)
             {
                 GameObject prev = objects[i];
-                for (int j = i + 1; j < objects.Length; j++)
+                for (int j = 0; j < objects.Length - 2; j++)
                 {
                     GameObject next = objects[j];
 

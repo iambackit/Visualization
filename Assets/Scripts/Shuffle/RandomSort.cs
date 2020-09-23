@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Assets.Scripts.Interfaces;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Shuffle
 {
