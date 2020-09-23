@@ -13,7 +13,8 @@ public class Controller : MonoBehaviour
     void Awake()
     {
         this._optionChanger = this.gameObject.GetComponent<OptionChanger>();
-
+        this._randomSortController = new RandomSortController();
+        
         this._circleGenerator = this.gameObject.AddComponent<CircleGenerator>();
         this._circleGenerator.CirclePrefab = this.CirclePrefab;
 
@@ -27,24 +28,15 @@ public class Controller : MonoBehaviour
 
     public void RandomSorting()
     {
-        switch(this._optionChanger.SelectedShuffle)
-        {
-            case Shuffle.Almost_Sorted:
-                randomSort = new AlmostSort();
-                break;
-            case Shuffle.Random:
-                randomSort = new RandomSort();
-                break;
-        }
-
-        randomSort.Sort(this._circles);
+        this._randomSortController.Sort(this._circles, this._optionChanger.SelectedShuffle);
     }
+
     #region private
     private CircleGenerator _circleGenerator;
     private ColorCalculator _colorCalculator;
     private OptionChanger _optionChanger;
+    private RandomSortController _randomSortController;
 
     private GameObject[] _circles;
-    private ISort randomSort;
     #endregion
 }
