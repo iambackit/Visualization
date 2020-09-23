@@ -19,6 +19,7 @@ namespace Assets.Scripts.Controllers
             this._randomSortController = new ShuffleController();
 
             this.SliderSpeed.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+            SortBase.Time = this.SliderSpeed.maxValue - this.SliderSpeed.value;
 
             this._circleGenerator = this.gameObject.AddComponent<CircleGenerator>();
             this._circleGenerator.CirclePrefab = this.CirclePrefab;
