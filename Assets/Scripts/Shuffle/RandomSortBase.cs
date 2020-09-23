@@ -4,9 +4,9 @@ using Assets.Scripts.Data;
 
 namespace Assets.Scripts.Shuffle
 {
-    public class RandomSortBase : ISort
+    public class RandomSortBase : IShuffle
     {
-        public virtual void Sort(GameObject[] circles)
+        public virtual void Shuffle(GameObject[] circles)
         {
             int r0, r1;
 

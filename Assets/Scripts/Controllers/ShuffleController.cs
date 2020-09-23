@@ -22,15 +22,15 @@ namespace Assets.Scripts.Controllers
             switch (selectedSorting)
             {
                 case Enums.Shuffle.Almost_Sorted:
-                    this._almostSort.Sort(objects);
+                    this._almostSort.Shuffle(objects);
                     break;
                 case Enums.Shuffle.Random:
-                    this._randomSort.Sort(objects);
+                    this._randomSort.Shuffle(objects);
                     break;
                 case Enums.Shuffle.Sorted:
                     break;
                 case Enums.Shuffle.Reversed:
-                    this._reversedSort.Sort(objects);
+                    this._reversedSort.Shuffle(objects);
                     break;
                 default:
                     break;

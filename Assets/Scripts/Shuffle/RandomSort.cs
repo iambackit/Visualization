@@ -4,10 +4,10 @@ namespace Assets.Scripts.Shuffle
 {
     public class RandomSort : RandomSortBase
     {
-        public override void Sort(GameObject[] circles)
+        public override void Shuffle(GameObject[] circles)
         {
             base.LoopCount = 1000;
-            base.Sort(circles);
+            base.Shuffle(circles);
         }
 
     }

@@ -5,10 +5,10 @@ namespace Assets.Scripts.Shuffle
 {
     class AlmostSort : RandomSortBase
     {
-        public override void Sort(GameObject[] circles)
+        public override void Shuffle(GameObject[] circles)
         {
             base.LoopCount = 10;
-            base.Sort(circles);
+            base.Shuffle(circles);
         }
     }
 }

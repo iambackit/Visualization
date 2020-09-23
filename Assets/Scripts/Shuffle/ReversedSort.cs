@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Assets.Scripts.Shuffle
 {
-    public class ReversedSort : ISort
+    public class ReversedSort : IShuffle
     {
-        public virtual void Sort(GameObject[] circles)
+        public virtual void Shuffle(GameObject[] circles)
         {
             int r0, r1;
 
