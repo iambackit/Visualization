@@ -12,11 +12,11 @@ public class CircleGenerator : MonoBehaviour
     private void Awake()
     {
         Size resolution = new Size(1920, 1080);
-        int greatestCommonDivisor = 120;
+        int circleSize = 120;
 
-        this._cols = resolution.Width / greatestCommonDivisor;
-        this._rows = resolution.Height / greatestCommonDivisor;
-        this._offset = greatestCommonDivisor / 100f;
+        this._cols = resolution.Width / circleSize - this._guiCoveredCols;
+        this._rows = resolution.Height / circleSize;
+        this._offset = circleSize / 100f;
         this._objectCount = this._cols * this._rows;
 
         this._circles = new GameObject[this._objectCount];
@@ -27,7 +27,7 @@ public class CircleGenerator : MonoBehaviour
         GameObject container = GameObject.Find("CircleContainer");
 
         int idx = 0;
-        float xPos = ((this._cols / 2) * -this._offset) + (this._offset / 2f);
+        float xPos = ((this._cols / 2) * -this._offset) + (this._offset / 2f) + this._offset;
         float yPos = (this._rows / 2) * -this._offset;
 
         float xPosAct;
@@ -57,6 +57,7 @@ public class CircleGenerator : MonoBehaviour
     private int _rows;
     private float _offset;
     private int _objectCount;
+    private int _guiCoveredCols = 3;
 
     GameObject[] _circles;
     #endregion
