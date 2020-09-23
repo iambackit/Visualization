@@ -9,34 +9,34 @@ namespace Assets.Scripts.GUI
     {
         public Text ShuffleText;
         public Text AlgorithmText;
+
+        public Algorithm SelectedAlgorithm { get; private set; } = Algorithm.Linear;
+        public Shuffle SelectedShuffle { get; private set; } = Shuffle.Random;
         public void SwitchAlgorithmForward()
         {
-            this._selectedAlgorithm = this._selectedAlgorithm.Next();
+            this.SelectedAlgorithm = this.SelectedAlgorithm.Next();
             this.SetAlgorithmText();
         }
 
         public void SwitchAlgorithmBackward()
         {
-            this._selectedAlgorithm = this._selectedAlgorithm.Previous();
+            this.SelectedAlgorithm = this.SelectedAlgorithm.Previous();
             this.SetAlgorithmText();
         }
 
         public void SwitchShuffleForward()
         {
-            this._selectedShuffle = this._selectedShuffle.Next();
+            this.SelectedShuffle = this.SelectedShuffle.Next();
             this.SetShuffleText();
         }
 
         public void SwitchShuffleBackward()
         {
-            this._selectedShuffle = this._selectedShuffle.Previous();
+            this.SelectedShuffle = this.SelectedShuffle.Previous();
             this.SetShuffleText();
         }
 
-        private Algorithm _selectedAlgorithm = Algorithm.Linear;
-        private Shuffle _selectedShuffle = Shuffle.Random;
-
-        private void SetAlgorithmText() => this.AlgorithmText.text = this._selectedAlgorithm.ToString();
-        private void SetShuffleText() => this.ShuffleText.text = this._selectedShuffle.ToString().Replace('_',' ');
+        private void SetAlgorithmText() => this.AlgorithmText.text = this.SelectedAlgorithm.ToString();
+        private void SetShuffleText() => this.ShuffleText.text = this.SelectedShuffle.ToString().Replace('_',' ');
     }
 }

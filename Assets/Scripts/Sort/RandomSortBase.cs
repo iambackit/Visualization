@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Interfaces;
 
-public class RandomSortBase : MonoBehaviour, ISort
+public class RandomSortBase : ISort
 {
-    public void Sort(GameObject[] circles)
+    public virtual void Sort(GameObject[] circles)
     {
         int r0, r1;
 

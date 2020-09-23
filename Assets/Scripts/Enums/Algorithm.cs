@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Enums
 {
-    enum Algorithm
+    public enum Algorithm
     {
         Linear,
         Bubble,

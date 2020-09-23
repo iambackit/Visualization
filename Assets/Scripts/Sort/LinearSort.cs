@@ -6,7 +6,7 @@ using Assets.Scripts.Interfaces;
 
 namespace Assets.Scripts.Sort
 {
-    public class LinearSort : MonoBehaviour, ISort
+    public class LinearSort : ISort
     {
         public void Sort(GameObject[] objects)
         {

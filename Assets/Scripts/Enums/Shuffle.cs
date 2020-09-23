@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Enums
 {
-    enum Shuffle
+    public enum Shuffle
     {
         Random,
         //Reversed,

@@ -5,7 +5,7 @@ namespace Assets.Scripts.Sort
 {
     class AlmostSort : RandomSortBase
     {
-        public void Sort(GameObject[] circles)
+        public override void Sort(GameObject[] circles)
         {
             base.LoopCount = 10;
             base.Sort(circles);
