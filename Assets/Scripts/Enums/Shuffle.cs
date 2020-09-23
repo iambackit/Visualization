@@ -11,6 +11,6 @@ namespace Assets.Scripts.Enums
         Random,
         //Reversed,
         Almost_Sorted,
-        //Sorted
+        Sorted
     }
 }

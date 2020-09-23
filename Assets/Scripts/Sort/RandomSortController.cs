@@ -16,7 +16,7 @@ namespace Assets.Scripts.Sort
 
         public void Sort(GameObject[] objects, Shuffle selectedSorting)
         {
-            this._linearSort.Sort(objects);
+            this._linearSort.Sort(objects); //todo - use better sorting algorithms
 
             switch (selectedSorting)
             {
@@ -25,6 +25,8 @@ namespace Assets.Scripts.Sort
                     break;
                 case Shuffle.Random:
                     this._randomSort.Sort(objects);
+                    break;
+                case Shuffle.Sorted:
                     break;
                 default:
                     break;
