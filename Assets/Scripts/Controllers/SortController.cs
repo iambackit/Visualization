@@ -1,30 +1,30 @@
 ﻿using Assets.Scripts.Shuffle;
 using Assets.Scripts.Sort;
+using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 namespace Assets.Scripts.Controllers
 {
-    class SortController
+    class SortController : MonoBehaviour
     {
-        public SortController()
+        private void Start()
         {
-            this._linearSort = new LinearSort();
-            this._bubbleSort = new BubbleSort();
+            this._linearSort = this.gameObject.AddComponent<LinearSort>();
+            this._bubbleSort = this.gameObject.AddComponent<BubbleSort>();
         }
-
-        public void Sort(GameObject[] objects, Enums.Algorithm selectedSorting)
+        public IEnumerator Sort(GameObject[] objects, Enums.Algorithm selectedSorting)
         {
             switch (selectedSorting)
             {
                 case Enums.Algorithm.Linear:
-                    this._linearSort.Sort(objects);
-                    break;
+                    return this._linearSort.Sort(objects);
                 case Enums.Algorithm.Bubble:
-                    this._bubbleSort.Sort(objects);
-                    break;
-                default:
-                    break;
+                    return this._bubbleSort.Sort(objects);
             }
+
+            return null;
         }
 
         private LinearSort _linearSort;

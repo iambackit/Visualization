@@ -12,8 +12,8 @@ namespace Assets.Scripts.Controllers
         void Awake()
         {
             this._optionChanger = this.gameObject.GetComponent<OptionChanger>();
+            this._sortController = this.gameObject.AddComponent<SortController>();
             this._randomSortController = new ShuffleController();
-            this._sortController = new SortController();
 
             this._circleGenerator = this.gameObject.AddComponent<CircleGenerator>();
             this._circleGenerator.CirclePrefab = this.CirclePrefab;
@@ -33,7 +33,7 @@ namespace Assets.Scripts.Controllers
 
         public void Sort()
         {
-            this._sortController.Sort(this._circles, this._optionChanger.SelectedAlgorithm);
+            StartCoroutine(this._sortController.Sort(this._circles, this._optionChanger.SelectedAlgorithm));
         }
 
         #region private

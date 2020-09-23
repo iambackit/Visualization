@@ -1,12 +1,13 @@
 ﻿using Assets.Scripts.Data;
 using Assets.Scripts.Interfaces;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.Sort
 {
-    class BubbleSort : ISort
+    class BubbleSort : MonoBehaviour, ISort
     {
-        public void Sort(GameObject[] objects)
+        public IEnumerator Sort(GameObject[] objects)
         {
             for (int p = 0; p < objects.Length - 2; p++)
             {
@@ -28,6 +29,8 @@ namespace Assets.Scripts.Sort
                         prev.GetComponent<Circle>().Place = next.GetComponent<Circle>().Place;
                         next.GetComponent<Circle>().Place = tmpPlace;
                     }
+
+                    yield return new WaitForSeconds(.0001f);
                 }
             }
         }

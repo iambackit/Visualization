@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Assets.Scripts.Interfaces
 {
     interface ISort
     {
-        void Sort(GameObject[] objects);
+        IEnumerator Sort(GameObject[] objects);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Shuffle;
+﻿using Assets.Scripts.Data;
+using Assets.Scripts.Shuffle;
 using Assets.Scripts.Sort;
 using UnityEngine;
 
@@ -11,13 +12,11 @@ namespace Assets.Scripts.Controllers
             this._almostSort = new AlmostSort();
             this._randomSort = new RandomSort();
             this._reversedSort = new ReversedSort();
-
-            this._linearSort = new LinearSort();
         }
 
         public void Sort(GameObject[] objects, Enums.Shuffle selectedSorting)
         {
-            this._linearSort.Sort(objects); //todo - use better sorting algorithms
+            this.Sort(objects); //todo - use better sorting algorithms
 
             switch (selectedSorting)
             {
@@ -41,6 +40,30 @@ namespace Assets.Scripts.Controllers
         private RandomSort _randomSort;
         private ReversedSort _reversedSort;
 
-        private LinearSort _linearSort;
+        private void Sort(GameObject[] objects)
+        {
+            for (int i = 0; i < objects.Length - 1; i++)
+            {
+                GameObject prev = objects[i];
+                for (int j = i + 1; j < objects.Length; j++)
+                {
+                    GameObject next = objects[j];
+
+                    int prevPlace = prev.GetComponent<Circle>().Place;
+                    int nextPlace = next.GetComponent<Circle>().Place;
+
+                    if (prevPlace > nextPlace)
+                    {
+                        Vector2 tmpPosition = prev.GetComponent<Circle>().Position;
+                        prev.GetComponent<Circle>().Position = next.GetComponent<Circle>().Position;
+                        next.GetComponent<Circle>().Position = tmpPosition;
+
+                        int tmpPlace = prev.GetComponent<Circle>().Place;
+                        prev.GetComponent<Circle>().Place = next.GetComponent<Circle>().Place;
+                        next.GetComponent<Circle>().Place = tmpPlace;
+                    }
+                }
+            }
+        }
     }
 }
