@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Interfaces;
 using Assets.Scripts.Enums;
+using Assets.Scripts.Shuffle;
 using UnityEngine;
 
 namespace Assets.Scripts.Sort
@@ -15,21 +16,21 @@ namespace Assets.Scripts.Sort
             this._linearSort = new LinearSort();
         }
 
-        public void Sort(GameObject[] objects, Shuffle selectedSorting)
+        public void Sort(GameObject[] objects, Enums.Shuffle selectedSorting)
         {
             this._linearSort.Sort(objects); //todo - use better sorting algorithms
 
             switch (selectedSorting)
             {
-                case Shuffle.Almost_Sorted:
+                case Enums.Shuffle.Almost_Sorted:
                     this._almostSort.Sort(objects);
                     break;
-                case Shuffle.Random:
+                case Enums.Shuffle.Random:
                     this._randomSort.Sort(objects);
                     break;
-                case Shuffle.Sorted:
+                case Enums.Shuffle.Sorted:
                     break;
-                case Shuffle.Reversed:
+                case Enums.Shuffle.Reversed:
                     this._reversedSort.Sort(objects);
                     break;
                 default:

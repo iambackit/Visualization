@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEditor.UI;
 using Assets.Scripts.Enums;
 using UnityEngine.UI;
 
@@ -11,7 +10,7 @@ namespace Assets.Scripts.GUI
         public Text AlgorithmText;
 
         public Algorithm SelectedAlgorithm { get; private set; } = Algorithm.Linear;
-        public Shuffle SelectedShuffle { get; private set; } = Shuffle.Random;
+        public Enums.Shuffle SelectedShuffle { get; private set; } = Enums.Shuffle.Random;
         public void SwitchAlgorithmForward()
         {
             this.SelectedAlgorithm = this.SelectedAlgorithm.Next();

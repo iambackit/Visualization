@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Interfaces;
 
-namespace Assets.Scripts.Sort
+namespace Assets.Scripts.Shuffle
 {
     class AlmostSort : RandomSortBase
     {

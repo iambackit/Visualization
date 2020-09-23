@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Interfaces;
 
-namespace Assets.Scripts.Sort
+namespace Assets.Scripts.Shuffle
 {
     public class RandomSort : RandomSortBase
     {
