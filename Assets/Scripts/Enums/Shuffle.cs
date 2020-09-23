@@ -9,7 +9,7 @@ namespace Assets.Scripts.Enums
     public enum Shuffle
     {
         Random,
-        //Reversed,
+        Reversed,
         Almost_Sorted,
         Sorted
     }

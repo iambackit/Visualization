@@ -10,6 +10,7 @@ namespace Assets.Scripts.Sort
         {
             this._almostSort = new AlmostSort();
             this._randomSort = new RandomSort();
+            this._reversedSort = new ReversedSort();
 
             this._linearSort = new LinearSort();
         }
@@ -28,6 +29,9 @@ namespace Assets.Scripts.Sort
                     break;
                 case Shuffle.Sorted:
                     break;
+                case Shuffle.Reversed:
+                    this._reversedSort.Sort(objects);
+                    break;
                 default:
                     break;
             }
@@ -35,6 +39,8 @@ namespace Assets.Scripts.Sort
         
         private AlmostSort _almostSort;
         private RandomSort _randomSort;
+        private ReversedSort _reversedSort;
+
         private LinearSort _linearSort;
     }
 }
