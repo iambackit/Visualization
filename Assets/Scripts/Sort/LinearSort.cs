@@ -6,9 +6,9 @@ using UnityEngine.UIElements;
 
 namespace Assets.Scripts.Sort
 {
-    public class LinearSort : MonoBehaviour, ISort
+    public class LinearSort : SortBase
     {
-        public IEnumerator Sort(GameObject[] objects)
+        public override IEnumerator Sort(GameObject[] objects)
         {
             for (int i = 0; i < objects.Length - 1; i++)
             {
@@ -36,7 +36,7 @@ namespace Assets.Scripts.Sort
                         next.GetComponent<Circle>().Place = tmpPlace;
                     }
 
-                    yield return new WaitForSeconds(.000001f);
+                    yield return new WaitForSeconds(Time);
                     next.GetComponent<Circle>().Color = savedNextColor;
                 }
 

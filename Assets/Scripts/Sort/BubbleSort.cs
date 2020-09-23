@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Assets.Scripts.Sort
 {
-    class BubbleSort : MonoBehaviour, ISort
+    class BubbleSort : SortBase
     {
-        public IEnumerator Sort(GameObject[] objects)
+        public override IEnumerator Sort(GameObject[] objects)
         {
             for (int p = 0; p < objects.Length - 2; p++)
             {
@@ -34,7 +34,7 @@ namespace Assets.Scripts.Sort
                         next.GetComponent<Circle>().Place = tmpPlace;
                     }
 
-                    yield return new WaitForSeconds(.000001f);
+                    yield return new WaitForSeconds(Time);
                     prev.GetComponent<Circle>().Color = savedPrevColor;
                     next.GetComponent<Circle>().Color = savedNextColor;
                 }
