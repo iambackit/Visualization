@@ -10,10 +10,14 @@ namespace Assets.Scripts.Sort
         {
             this._almostSort = new AlmostSort();
             this._randomSort = new RandomSort();
+
+            this._linearSort = new LinearSort();
         }
 
         public void Sort(GameObject[] objects, Shuffle selectedSorting)
         {
+            this._linearSort.Sort(objects);
+
             switch (selectedSorting)
             {
                 case Shuffle.Almost_Sorted:
@@ -29,5 +33,6 @@ namespace Assets.Scripts.Sort
         
         private AlmostSort _almostSort;
         private RandomSort _randomSort;
+        private LinearSort _linearSort;
     }
 }
