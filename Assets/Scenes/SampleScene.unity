@@ -693,8 +693,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CirclePrefab: {fileID: 5549195011112300361, guid: 7c102751fd2ba184fa15b2f8e8bd355a, type: 3}
-  Start: {r: 0.8117647, g: 0, b: 0.6863699, a: 0}
-  End: {r: 0.46407878, g: 1, b: 0, a: 0}
+  SliderSpeed: {fileID: 930419729}
+  Start: {r: 0.4901961, g: 0.92549026, b: 0.050980397, a: 0}
+  End: {r: 0.9095907, g: 0, b: 1, a: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1043,7 +1044,7 @@ GameObject:
   - component: {fileID: 930419728}
   - component: {fileID: 930419729}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: slider_speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1114,13 +1115,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1013579178}
   m_HandleRect: {fileID: 307069323}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.5
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 519420028}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &930530870
 GameObject:
   m_ObjectHideFlags: 0
