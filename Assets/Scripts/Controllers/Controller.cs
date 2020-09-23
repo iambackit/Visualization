@@ -13,6 +13,7 @@ namespace Assets.Scripts.Controllers
         {
             this._optionChanger = this.gameObject.GetComponent<OptionChanger>();
             this._randomSortController = new ShuffleController();
+            this._sortController = new SortController();
 
             this._circleGenerator = this.gameObject.AddComponent<CircleGenerator>();
             this._circleGenerator.CirclePrefab = this.CirclePrefab;
@@ -30,12 +31,18 @@ namespace Assets.Scripts.Controllers
             this._randomSortController.Sort(this._circles, this._optionChanger.SelectedShuffle);
         }
 
+        public void Sort()
+        {
+            this._sortController.Sort(this._circles, this._optionChanger.SelectedAlgorithm);
+        }
+
         #region private
         private CircleGenerator _circleGenerator;
         private ColorCalculator _colorCalculator;
         private OptionChanger _optionChanger;
+        
         private ShuffleController _randomSortController;
-
+        private SortController _sortController;
         private GameObject[] _circles;
         #endregion
     }

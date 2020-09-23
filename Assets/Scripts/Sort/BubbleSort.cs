@@ -8,12 +8,12 @@ namespace Assets.Scripts.Sort
     {
         public void Sort(GameObject[] objects)
         {
-            for (int i = 0; i < objects.Length - 2; i++)
+            for (int p = 0; p < objects.Length - 2; p++)
             {
-                GameObject prev = objects[i];
-                for (int j = 0; j < objects.Length - 2; j++)
+                for (int i = 0; i < objects.Length - 2; i++)
                 {
-                    GameObject next = objects[j];
+                    GameObject prev = objects[i];
+                    GameObject next = objects[i + 1];
 
                     int prevPlace = prev.GetComponent<Circle>().Place;
                     int nextPlace = next.GetComponent<Circle>().Place;

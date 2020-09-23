@@ -8,8 +8,8 @@ namespace Assets.Scripts.Controllers
     {
         public SortController()
         {
-            this._bubbleSort = new BubbleSort();
             this._linearSort = new LinearSort();
+            this._bubbleSort = new BubbleSort();
         }
 
         public void Sort(GameObject[] objects, Enums.Algorithm selectedSorting)
@@ -27,7 +27,7 @@ namespace Assets.Scripts.Controllers
             }
         }
 
-        private BubbleSort _bubbleSort;
         private LinearSort _linearSort;
+        private BubbleSort _bubbleSort;
     }
 }
