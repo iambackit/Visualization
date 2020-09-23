@@ -24,6 +24,8 @@ public class CircleGenerator : MonoBehaviour
 
     public GameObject[] GenerateObjects()
     {
+        GameObject container = GameObject.Find("CircleContainer");
+
         int idx = 0;
         float xPos = ((this._cols / 2) * -this._offset) + (this._offset / 2f);
         float yPos = (this._rows / 2) * -this._offset;
@@ -39,6 +41,7 @@ public class CircleGenerator : MonoBehaviour
                 this._circles[idx].GetComponent<Circle>().Position = position;
                 this._circles[idx].GetComponent<Circle>().Color = this.ColorCalculator.GetActColor(idx+1, this._objectCount);
                 this._circles[idx].GetComponent<Circle>().Place = idx;
+                this._circles[idx].gameObject.transform.parent = container.transform;
                 idx++;
 
                 xPosAct += this._offset;
