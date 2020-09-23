@@ -31,7 +31,8 @@ namespace Assets.Scripts.Controllers
             this._circleGenerator.ColorCalculator = this._colorCalculator;
 
             this._circles = this._circleGenerator.GenerateObjects();
-
+            this._optionChanger.ShuffleController = this._randomSortController;
+            this._optionChanger.Objects = this._circles;
         }
 
         public void RandomSorting()

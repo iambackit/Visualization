@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Controllers
 {
-    class ShuffleController
+    public class ShuffleController
     {
         public ShuffleController()
         {
