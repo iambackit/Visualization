@@ -7,7 +7,7 @@ namespace Assets.Scripts.Shuffle
 {
     public class RandomSortBase : IShuffle
     {
-        public virtual void Shuffle(GameObject[] circles)
+        public virtual void Shuffle(CircleArray circles)
         {
             int r0, r1;
 

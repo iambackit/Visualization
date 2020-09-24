@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Shuffle;
 using Assets.Scripts.Computing;
 using UnityEngine;
+using Assets.Scripts.Data;
 
 namespace Assets.Scripts.Controllers
 {
@@ -13,7 +14,7 @@ namespace Assets.Scripts.Controllers
             this._reversedSort = new ReversedSort();
         }
 
-        public void Sort(GameObject[] objects, Enums.Shuffle selectedSorting)
+        public void Sort(CircleArray objects, Enums.Shuffle selectedSorting)
         {
             this.Sort(objects);
 
@@ -39,7 +40,7 @@ namespace Assets.Scripts.Controllers
         private RandomSort _randomSort;
         private ReversedSort _reversedSort;
 
-        private void Sort(GameObject[] objects)
+        private void Sort(CircleArray objects)
         {
             int smallest;
             for (int i = 0; i < objects.Length - 1; i++)

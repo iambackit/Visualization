@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Data;
+using UnityEngine;
 
 namespace Assets.Scripts.Interfaces
 {
     interface IShuffle
     {
-        void Shuffle(GameObject[] objects);
+        void Shuffle(CircleArray objects);
     }
 }

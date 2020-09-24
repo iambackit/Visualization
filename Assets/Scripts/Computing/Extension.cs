@@ -37,15 +37,30 @@ namespace Assets.Scripts.Computing
             b.GetComponent<Circle>().ActualIndex = tmpValue;
         }
 
-        public static GameObject GetObjectByActualPosition(GameObject[] objects, int idx)
+        public static GameObject GetObjectByActualPosition(CircleArray objects, int idx)
         {
-            foreach (GameObject item in objects)
+            for (int i = 0; i < objects.Length; i++)
             {
-                if (item.GetComponent<Circle>().ActualIndex == idx)
-                    return item;
+                if (objects[i].GetComponent<Circle>().ActualIndex == idx)
+                    return objects[i];
             }
 
             return null;
+        }
+
+        public static void AddFade(CircleArray objects)
+        {
+            for (int i = 0; i < objects.Length; i++)
+            {
+                Color c = objects[i].GetComponent<Circle>().Color;
+                objects[i].GetComponent<Circle>().Color = new Color(c.r, c.g, c.b, .65f);
+            }
+        }
+
+        public static void RemoveFade(GameObject go)
+        {
+            Color c = go.GetComponent<Circle>().Color;
+            go.GetComponent<Circle>().Color = new Color(c.r, c.g, c.b, 1f);
         }
     }
 }

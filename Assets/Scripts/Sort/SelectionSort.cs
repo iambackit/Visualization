@@ -10,10 +10,10 @@ namespace Assets.Scripts.Sort
 {
     public class SelectionSort : SortBase
     {
-        public override IEnumerator Sort(GameObject[] objects)
+        public override IEnumerator Sort(CircleArray objects)
         {
             IsFinished = false;
-            this.AddFade(objects);
+            Extension.AddFade(objects);
 
             int smallest;
             for (int i = 0; i < objects.Length - 1; i++)
@@ -28,7 +28,7 @@ namespace Assets.Scripts.Sort
                     yield return new WaitForSeconds(Time);
                 }
                 Extension.Swap(Extension.GetObjectByActualPosition(objects, smallest), Extension.GetObjectByActualPosition(objects, i));
-                this.RemoveFade(Extension.GetObjectByActualPosition(objects, i));
+                Extension.RemoveFade(Extension.GetObjectByActualPosition(objects, i));
             }
 
             IsFinished = true;

@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Data;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.Interfaces
 {
     interface ISort
     {
-        IEnumerator Sort(GameObject[] objects);
+        IEnumerator Sort(CircleArray objects);
     }
 }

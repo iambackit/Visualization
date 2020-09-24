@@ -3,6 +3,7 @@ using Assets.Scripts.Enums;
 using UnityEngine.UI;
 using Assets.Scripts.Controllers;
 using Assets.Scripts.Computing;
+using Assets.Scripts.Data;
 
 namespace Assets.Scripts.GUI
 {
@@ -13,7 +14,7 @@ namespace Assets.Scripts.GUI
         public Algorithm SelectedAlgorithm { get; private set; } = Algorithm.Selection;
         public Enums.Shuffle SelectedShuffle { get; private set; } = Enums.Shuffle.Random;
         public ShuffleController ShuffleController { get; set; }
-        public GameObject[] Objects { get; set; }
+        public CircleArray Objects { get; set; }
         public void SwitchAlgorithmForward()
         {
             this.SelectedAlgorithm = this.SelectedAlgorithm.Next();

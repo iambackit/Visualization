@@ -1,9 +1,6 @@
 ﻿using Assets.Scripts.Data;
-using System.Collections;
-using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Assets.Scripts.Computing
 {
@@ -11,7 +8,7 @@ namespace Assets.Scripts.Computing
     {
         public GameObject CirclePrefab { get; set; }
         public ColorCalculator ColorCalculator { get; set; }
-        public GameObject[] Circles { get { return this._circles; } }
+        public CircleArray Circles { get { return this._circles; } }
         private void Awake()
         {
             Size resolution = new Size(1920, 1080);
@@ -22,10 +19,10 @@ namespace Assets.Scripts.Computing
             this._offset = circleSize / 100f;
             this._objectCount = this._cols * this._rows;
 
-            this._circles = new GameObject[this._objectCount];
+            this._circles = new CircleArray(this._objectCount);
         }
 
-        public GameObject[] GenerateObjects()
+        public CircleArray GenerateObjects()
         {
             GameObject container = GameObject.Find("CircleContainer");
 
@@ -63,7 +60,7 @@ namespace Assets.Scripts.Computing
         private int _objectCount;
         private int _guiCoveredCols = 3;
 
-        GameObject[] _circles;
+        CircleArray _circles;
         #endregion
     }
 }

@@ -4,6 +4,7 @@ using Assets.Scripts.Computing;
 using Assets.Scripts.Sort;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
+using Assets.Scripts.Data;
 
 namespace Assets.Scripts.Controllers
 {
@@ -59,7 +60,7 @@ namespace Assets.Scripts.Controllers
         
         private ShuffleController _randomSortController;
         private SortController _sortController;
-        private GameObject[] _circles;
+        private CircleArray _circles;
         #endregion
     }
 }

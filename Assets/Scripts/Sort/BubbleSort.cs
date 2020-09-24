@@ -9,19 +9,19 @@ namespace Assets.Scripts.Sort
 {
     class BubbleSort : SortBase
     {
-        public override IEnumerator Sort(GameObject[] objects)
+        public override IEnumerator Sort(CircleArray objects)
         {
             IsFinished = false;
-            
-            this.AddFade(objects);
+
+            Extension.AddFade(objects);
             int tmpIdx = objects.Length - 1;
 
             for (int p = 0; p < objects.Length - 2; p++)
             {
                 for (int i = 0; i < objects.Length - 1; i++)
                 {
-                    GameObject prev = GetObjectByActualPosition(objects, i);
-                    GameObject next = GetObjectByActualPosition(objects, i + 1);
+                    GameObject prev = Extension.GetObjectByActualPosition(objects, i);
+                    GameObject next = Extension.GetObjectByActualPosition(objects, i + 1);
 
                     if (Extension.Compare(prev, next))
                     {
@@ -31,13 +31,13 @@ namespace Assets.Scripts.Sort
                     yield return new WaitForSeconds(Time);
                 }
 
-                GameObject lastSorted = GetObjectByActualPosition(objects, tmpIdx);
-                this.RemoveFade(lastSorted);
+                GameObject lastSorted = Extension.GetObjectByActualPosition(objects, tmpIdx);
+                Extension.RemoveFade(lastSorted);
                 tmpIdx--;
             }
 
-            this.RemoveFade(objects[1]);
-            this.RemoveFade(objects[0]);
+            Extension.RemoveFade(objects[1]);
+            Extension.RemoveFade(objects[0]);
 
             IsFinished = true;
         }

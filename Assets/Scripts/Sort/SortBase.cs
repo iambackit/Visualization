@@ -12,7 +12,7 @@ namespace Assets.Scripts.Sort
     {
         public static float Time = 1f;
         public static bool IsFinished = true;
-        public abstract IEnumerator Sort(GameObject[] objects);
+        public abstract IEnumerator Sort(CircleArray objects);
 
         protected Dictionary<int, int> SetIndicies(GameObject[] objects)
         {
@@ -43,30 +43,6 @@ namespace Assets.Scripts.Sort
             second.GetComponent<Circle>().ActualIndex = tmpValue;
         }
 
-        protected void AddFade(GameObject[] objects)
-        {
-            foreach (GameObject item in objects)
-            {
-                Color c = item.GetComponent<Circle>().Color;
-                item.GetComponent<Circle>().Color = new Color(c.r, c.g, c.b, .65f);
-            }
-        }
-
-        protected void RemoveFade(GameObject go)
-        {
-            Color c = go.GetComponent<Circle>().Color;
-            go.GetComponent<Circle>().Color = new Color(c.r, c.g, c.b, 1f);
-        }
-
-        protected GameObject GetObjectByActualPosition(GameObject[] objects, int idx)
-        {
-            foreach (GameObject item in objects)
-            {
-                if (item.GetComponent<Circle>().ActualIndex == idx)
-                    return item;
-            }
-
-            return null;
-        }
+        
     }
 }
