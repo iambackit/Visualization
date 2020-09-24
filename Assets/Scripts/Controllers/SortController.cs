@@ -11,7 +11,7 @@ namespace Assets.Scripts.Controllers
     {
         private void Start()
         {
-            this._linearSort = this.gameObject.AddComponent<SelectionSort>();
+            this._selectionSort = this.gameObject.AddComponent<SelectionSort>();
             this._bubbleSort = this.gameObject.AddComponent<BubbleSort>();
         }
         public IEnumerator Sort(GameObject[] objects, Enums.Algorithm selectedSorting)
@@ -19,7 +19,7 @@ namespace Assets.Scripts.Controllers
             switch (selectedSorting)
             {
                 case Enums.Algorithm.Selection:
-                    return this._linearSort.Sort(objects);
+                    return this._selectionSort.Sort(objects);
                 case Enums.Algorithm.Bubble:
                     return this._bubbleSort.Sort(objects);
             }
@@ -27,7 +27,7 @@ namespace Assets.Scripts.Controllers
             return null;
         }
 
-        private SelectionSort _linearSort;
+        private SelectionSort _selectionSort;
         private BubbleSort _bubbleSort;
     }
 }
