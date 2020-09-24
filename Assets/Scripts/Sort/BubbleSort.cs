@@ -30,9 +30,9 @@ namespace Assets.Scripts.Sort
                         prev.GetComponent<Circle>().Position = next.GetComponent<Circle>().Position;
                         next.GetComponent<Circle>().Position = tmpPosition;
 
-                        int tmpPlace = prev.GetComponent<Circle>().Place;
-                        prev.GetComponent<Circle>().Place = next.GetComponent<Circle>().Place;
-                        next.GetComponent<Circle>().Place = tmpPlace;
+                        int tmpPlace = prev.GetComponent<Circle>().Value;
+                        prev.GetComponent<Circle>().Value = next.GetComponent<Circle>().Value;
+                        next.GetComponent<Circle>().Value = tmpPlace;
 
                         int tmp = indicies[i];
                         indicies[i] = indicies[i + 1];

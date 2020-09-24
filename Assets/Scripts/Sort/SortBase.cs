@@ -20,7 +20,7 @@ namespace Assets.Scripts.Sort
             int i = 0;
             foreach (GameObject item in objects)
             {
-                int idx = item.GetComponent<Circle>().Place;
+                int idx = item.GetComponent<Circle>().Value;
                 indicies.Add(idx, i);
                 i++;
             }

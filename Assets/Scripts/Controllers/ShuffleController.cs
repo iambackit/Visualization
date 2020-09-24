@@ -49,8 +49,8 @@ namespace Assets.Scripts.Controllers
                 {
                     GameObject next = objects[j];
 
-                    int prevPlace = prev.GetComponent<Circle>().Place;
-                    int nextPlace = next.GetComponent<Circle>().Place;
+                    int prevPlace = prev.GetComponent<Circle>().Value;
+                    int nextPlace = next.GetComponent<Circle>().Value;
 
                     if (prevPlace > nextPlace)
                     {
@@ -58,9 +58,9 @@ namespace Assets.Scripts.Controllers
                         prev.GetComponent<Circle>().Position = next.GetComponent<Circle>().Position;
                         next.GetComponent<Circle>().Position = tmpPosition;
 
-                        int tmpPlace = prev.GetComponent<Circle>().Place;
-                        prev.GetComponent<Circle>().Place = next.GetComponent<Circle>().Place;
-                        next.GetComponent<Circle>().Place = tmpPlace;
+                        int tmpPlace = prev.GetComponent<Circle>().Value;
+                        prev.GetComponent<Circle>().Value = next.GetComponent<Circle>().Value;
+                        next.GetComponent<Circle>().Value = tmpPlace;
                     }
                 }
             }

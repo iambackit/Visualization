@@ -24,10 +24,10 @@ namespace Assets.Scripts.Data
                 this.transform.position = this._position;
             }
         }
-        public int Place
+        public int Value
         {
-            get { return _place; }
-            set { _place = value; }
+            get { return _value; }
+            set { _value = value; }
         }
 
         #region private
@@ -35,7 +35,7 @@ namespace Assets.Scripts.Data
         private Vector2 _position;
         private Color _color;
         [SerializeField]
-        private int _place;
+        private int _value;
         #endregion
     }
 }
