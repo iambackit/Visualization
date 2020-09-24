@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Data;
+﻿using Assets.Scripts.Computing;
+using Assets.Scripts.Data;
 using Assets.Scripts.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,16 +23,15 @@ namespace Assets.Scripts.Sort
                     GameObject prev = GetObjectByActualPosition(objects, i);
                     GameObject next = GetObjectByActualPosition(objects, i + 1);
 
-                    if (prev.GetComponent<Circle>().OriginalIndex > next.GetComponent<Circle>().OriginalIndex)
+                    if (Extension.Compare(prev, next))
                     {
-                        this.SwapPosition(prev, next);
-                        this.SwapIndex(prev, next);
+                        Extension.Swap(prev, next);
                     }
 
                     yield return new WaitForSeconds(Time);
                 }
 
-                GameObject lastSorted = objects[tmpIdx];
+                GameObject lastSorted = GetObjectByActualPosition(objects, tmpIdx);
                 this.RemoveFade(lastSorted);
                 tmpIdx--;
             }
