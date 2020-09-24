@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngineInternal;
 
 namespace Assets.Scripts.Data
 {
@@ -24,10 +25,16 @@ namespace Assets.Scripts.Data
                 this.transform.position = this._position;
             }
         }
-        public int Value
+        public int ActualIndex
         {
-            get { return _value; }
-            set { _value = value; }
+            get { return _actualIndex; }
+            set { _actualIndex = value; }
+        }
+
+        public int OriginalIndex
+        {
+            get { return _originalIndex; }
+            set { _originalIndex = value; }
         }
 
         #region private
@@ -35,7 +42,9 @@ namespace Assets.Scripts.Data
         private Vector2 _position;
         private Color _color;
         [SerializeField]
-        private int _value;
+        private int _actualIndex;
+        [SerializeField]
+        private int _originalIndex;
         #endregion
     }
 }

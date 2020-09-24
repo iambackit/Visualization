@@ -3,6 +3,7 @@ using Assets.Scripts.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.Sort
@@ -20,7 +21,7 @@ namespace Assets.Scripts.Sort
             int i = 0;
             foreach (GameObject item in objects)
             {
-                int idx = item.GetComponent<Circle>().Value;
+                int idx = item.GetComponent<Circle>().ActualIndex;
                 indicies.Add(idx, i);
                 i++;
             }
@@ -35,18 +36,23 @@ namespace Assets.Scripts.Sort
             second.GetComponent<Circle>().Position = tmpPosition;
         }
 
-        protected void SwapValue(GameObject first, GameObject second)
+        protected void SwapIndex(GameObject first, GameObject second)
         {
-            int tmpValue = first.GetComponent<Circle>().Value;
-            first.GetComponent<Circle>().Value = second.GetComponent<Circle>().Value;
-            second.GetComponent<Circle>().Value = tmpValue;
+            int tmpValue = first.GetComponent<Circle>().ActualIndex;
+            first.GetComponent<Circle>().ActualIndex = second.GetComponent<Circle>().ActualIndex;
+            second.GetComponent<Circle>().ActualIndex = tmpValue;
         }
 
-        protected void SwapIndex(Dictionary<int, int> dictionary, int firstIdx, int secondIdx)
+
+        protected GameObject GetObjectByActualPosition(GameObject[] objects, int idx)
         {
-            int tmp = dictionary[firstIdx];
-            dictionary[firstIdx] = dictionary[secondIdx];
-            dictionary[secondIdx] = tmp;
+            foreach (GameObject item in objects)
+            {
+                if (item.GetComponent<Circle>().ActualIndex == idx)
+                    return item;
+            }
+
+            return null;
         }
     }
 }

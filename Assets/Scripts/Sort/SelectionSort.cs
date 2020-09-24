@@ -12,33 +12,27 @@ namespace Assets.Scripts.Sort
         public override IEnumerator Sort(GameObject[] objects)
         {
             IsFinished = false;
-            Dictionary<int, int> indicies = this.SetIndicies(objects);
 
             for (int i = 0; i < objects.Length - 1; i++)
             {
-                int smallestIdx = indicies[i];
+                GameObject act = GetObjectByActualPosition(objects, i);
+                GameObject min = GetObjectByActualPosition(objects, i);
+                int minIdx = i;
 
                 for (int j = i + 1; j < objects.Length; j++)
                 {
-                    if (indicies[i] > indicies[j])
-                    {
-                        smallestIdx = j;
-                    }
+                    GameObject next = GetObjectByActualPosition(objects, j);
 
-                    yield return new WaitForSeconds(Time);
+                    if (min.GetComponent<Circle>().OriginalIndex > next.GetComponent<Circle>().OriginalIndex)
+                    {
+                        min = GetObjectByActualPosition(objects, j);
+                        minIdx = j;
+                    }
                 }
 
-                Vector2 tmpPosition = objects[indicies[i]].GetComponent<Circle>().Position;
-                objects[indicies[i]].GetComponent<Circle>().Position = objects[indicies[smallestIdx]].GetComponent<Circle>().Position;
-                objects[indicies[smallestIdx]].GetComponent<Circle>().Position = tmpPosition;
-
-                int tmpPlace = objects[indicies[i]].GetComponent<Circle>().Value;
-                objects[indicies[i]].GetComponent<Circle>().Value = objects[indicies[smallestIdx]].GetComponent<Circle>().Value;
-                objects[indicies[smallestIdx]].GetComponent<Circle>().Value = tmpPlace;
-
-                int tmp = indicies[i];
-                indicies[i] = indicies[smallestIdx];
-                indicies[smallestIdx] = tmp;
+                this.SwapPosition(act, min);
+                this.SwapIndex(act, min);
+                yield return new WaitForSeconds(Time);
             }
 
             IsFinished = true;

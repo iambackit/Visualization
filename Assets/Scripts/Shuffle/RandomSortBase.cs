@@ -19,9 +19,9 @@ namespace Assets.Scripts.Shuffle
                 circles[r0].GetComponent<Circle>().Position = circles[r1].GetComponent<Circle>().Position;
                 circles[r1].GetComponent<Circle>().Position = r0Position;
 
-                int r0Place = circles[r0].GetComponent<Circle>().Value;
-                circles[r0].GetComponent<Circle>().Value = circles[r1].GetComponent<Circle>().Value;
-                circles[r1].GetComponent<Circle>().Value = r0Place;
+                int r0Place = circles[r0].GetComponent<Circle>().ActualIndex;
+                circles[r0].GetComponent<Circle>().ActualIndex = circles[r1].GetComponent<Circle>().ActualIndex;
+                circles[r1].GetComponent<Circle>().ActualIndex = r0Place;
             }
         }
 

@@ -43,7 +43,8 @@ namespace Assets.Scripts.Computing
                     this._circles[idx] = Instantiate(CirclePrefab, position, Quaternion.identity);
                     this._circles[idx].GetComponent<Circle>().Position = position;
                     this._circles[idx].GetComponent<Circle>().Color = this.ColorCalculator.GetActColor(idx + 1, this._objectCount);
-                    this._circles[idx].GetComponent<Circle>().Value = idx;
+                    this._circles[idx].GetComponent<Circle>().ActualIndex = idx;
+                    this._circles[idx].GetComponent<Circle>().OriginalIndex = idx;
                     this._circles[idx].gameObject.transform.parent = container.transform;
                     idx++;
 
