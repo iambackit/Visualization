@@ -9,7 +9,7 @@ namespace Assets.Scripts.GUI
     {
         public Text ShuffleText;
         public Text AlgorithmText;
-        public Algorithm SelectedAlgorithm { get; private set; } = Algorithm.Linear;
+        public Algorithm SelectedAlgorithm { get; private set; } = Algorithm.Selection;
         public Enums.Shuffle SelectedShuffle { get; private set; } = Enums.Shuffle.Random;
         public ShuffleController ShuffleController { get; set; }
         public GameObject[] Objects { get; set; }

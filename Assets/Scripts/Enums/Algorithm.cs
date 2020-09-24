@@ -2,7 +2,7 @@
 {
     public enum Algorithm
     {
-        Linear,
+        Selection,
         Bubble
     }
 }

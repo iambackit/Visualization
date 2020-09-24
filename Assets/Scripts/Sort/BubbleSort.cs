@@ -48,19 +48,6 @@ namespace Assets.Scripts.Sort
             IsFinished = true;
         }
 
-        private Dictionary<int, int> SetIndicies(GameObject[] objects)
-        {
-            Dictionary<int, int> indicies = new Dictionary<int, int>();
-
-            int i = 0;
-            foreach (GameObject item in objects)
-            {
-                int idx = item.GetComponent<Circle>().Place;
-                indicies.Add(idx, i);
-                i++;
-            }
-
-            return indicies;
-        }
+       
     }
 }
