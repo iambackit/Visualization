@@ -27,5 +27,26 @@ namespace Assets.Scripts.Sort
 
             return indicies;
         }
+
+        protected void SwapPosition(GameObject first, GameObject second)
+        {
+            Vector2 tmpPosition = first.GetComponent<Circle>().Position;
+            first.GetComponent<Circle>().Position = second.GetComponent<Circle>().Position;
+            second.GetComponent<Circle>().Position = tmpPosition;
+        }
+
+        protected void SwapValue(GameObject first, GameObject second)
+        {
+            int tmpValue = first.GetComponent<Circle>().Value;
+            first.GetComponent<Circle>().Value = second.GetComponent<Circle>().Value;
+            second.GetComponent<Circle>().Value = tmpValue;
+        }
+
+        protected void SwapIndex(Dictionary<int, int> dictionary, int firstIdx, int secondIdx)
+        {
+            int tmp = dictionary[firstIdx];
+            dictionary[firstIdx] = dictionary[secondIdx];
+            dictionary[secondIdx] = tmp;
+        }
     }
 }
