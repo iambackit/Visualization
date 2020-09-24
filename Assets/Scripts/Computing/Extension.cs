@@ -1,6 +1,8 @@
 ﻿using Assets.Scripts.Data;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Assets.Scripts.Computing
@@ -28,13 +30,16 @@ namespace Assets.Scripts.Computing
 
         public static void Swap(GameObject a, GameObject b)
         {
-            Vector2 tmpPosition = a.GetComponent<Circle>().Position;
-            a.GetComponent<Circle>().Position = b.GetComponent<Circle>().Position;
-            b.GetComponent<Circle>().Position = tmpPosition;
+            Circle aCircle = a.GetComponent<Circle>();
+            Circle bCircle = b.GetComponent<Circle>();
 
-            int tmpValue = a.GetComponent<Circle>().ActualIndex;
-            a.GetComponent<Circle>().ActualIndex = b.GetComponent<Circle>().ActualIndex;
-            b.GetComponent<Circle>().ActualIndex = tmpValue;
+            Vector2 tmpPosition = aCircle.Position;
+            aCircle.Position = bCircle.Position;
+            bCircle.Position = tmpPosition;
+
+            int tmpValue = aCircle.ActualIndex;
+            aCircle.ActualIndex = bCircle.ActualIndex;
+            bCircle.ActualIndex = tmpValue;
         }
 
         public static GameObject GetObjectByActualPosition(CircleArray objects, int idx)
@@ -59,8 +64,9 @@ namespace Assets.Scripts.Computing
 
         public static void RemoveFade(GameObject go)
         {
-            Color c = go.GetComponent<Circle>().Color;
-            go.GetComponent<Circle>().Color = new Color(c.r, c.g, c.b, 1f);
+            Circle circle = go.GetComponent<Circle>();
+            Color c = circle.Color;
+            circle.Color = new Color(c.r, c.g, c.b, 1f);
         }
     }
 }
