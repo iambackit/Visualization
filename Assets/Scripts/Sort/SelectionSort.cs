@@ -30,6 +30,7 @@ namespace Assets.Scripts.Sort
                 Extension.Swap(Extension.GetObjectByActualPosition(objects, smallest), Extension.GetObjectByActualPosition(objects, i));
                 Extension.RemoveFade(Extension.GetObjectByActualPosition(objects, i));
             }
+            Extension.RemoveFade(Extension.GetObjectByActualPosition(objects, objects.Length - 1));
 
             IsFinished = true;
         }
