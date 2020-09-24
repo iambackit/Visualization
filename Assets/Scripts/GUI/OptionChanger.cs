@@ -2,6 +2,7 @@
 using Assets.Scripts.Enums;
 using UnityEngine.UI;
 using Assets.Scripts.Controllers;
+using Assets.Scripts.Computing;
 
 namespace Assets.Scripts.GUI
 {

@@ -4,6 +4,7 @@ using Assets.Scripts.Data;
 using System.Collections;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
+using Assets.Scripts.Computing;
 
 namespace Assets.Scripts.Sort
 {
@@ -14,32 +15,21 @@ namespace Assets.Scripts.Sort
             IsFinished = false;
             this.AddFade(objects);
 
+            int smallest;
             for (int i = 0; i < objects.Length - 1; i++)
             {
-                GameObject act = GetObjectByActualPosition(objects, i);
-                GameObject min = GetObjectByActualPosition(objects, i);
-                int minIdx = i;
-
+                smallest = i;
                 for (int j = i + 1; j < objects.Length; j++)
                 {
-                    GameObject next = GetObjectByActualPosition(objects, j);
-
-                    if (min.GetComponent<Circle>().OriginalIndex > next.GetComponent<Circle>().OriginalIndex)
+                    if (Extension.Compare(Extension.GetObjectByActualPosition(objects, smallest), Extension.GetObjectByActualPosition(objects, j)))
                     {
-                        min = GetObjectByActualPosition(objects, j);
-                        minIdx = j;
+                        smallest = j;
                     }
-
                     yield return new WaitForSeconds(Time);
                 }
-
-                this.SwapPosition(act, min);
-                this.SwapIndex(act, min);
-                this.RemoveFade(min);
+                Extension.Swap(Extension.GetObjectByActualPosition(objects, smallest), Extension.GetObjectByActualPosition(objects, i));
+                this.RemoveFade(Extension.GetObjectByActualPosition(objects, i));
             }
-
-            this.RemoveFade(objects[objects.Length - 1]);
-
 
             IsFinished = true;
         }

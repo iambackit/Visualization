@@ -1,6 +1,5 @@
-﻿using Assets.Scripts.Data;
-using Assets.Scripts.Shuffle;
-using Assets.Scripts.Sort;
+﻿using Assets.Scripts.Shuffle;
+using Assets.Scripts.Computing;
 using UnityEngine;
 
 namespace Assets.Scripts.Controllers
@@ -16,7 +15,7 @@ namespace Assets.Scripts.Controllers
 
         public void Sort(GameObject[] objects, Enums.Shuffle selectedSorting)
         {
-            this.Sort(objects); //todo - use better sorting algorithms
+            this.Sort(objects);
 
             switch (selectedSorting)
             {
@@ -42,27 +41,18 @@ namespace Assets.Scripts.Controllers
 
         private void Sort(GameObject[] objects)
         {
+            int smallest;
             for (int i = 0; i < objects.Length - 1; i++)
             {
-                GameObject prev = objects[i];
+                smallest = i;
                 for (int j = i + 1; j < objects.Length; j++)
                 {
-                    GameObject next = objects[j];
-
-                    int prevPlace = prev.GetComponent<Circle>().ActualIndex;
-                    int nextPlace = next.GetComponent<Circle>().ActualIndex;
-
-                    if (prevPlace > nextPlace)
+                    if (Extension.Compare(Extension.GetObjectByActualPosition(objects, smallest), Extension.GetObjectByActualPosition(objects, j)))
                     {
-                        Vector2 tmpPosition = prev.GetComponent<Circle>().Position;
-                        prev.GetComponent<Circle>().Position = next.GetComponent<Circle>().Position;
-                        next.GetComponent<Circle>().Position = tmpPosition;
-
-                        int tmpPlace = prev.GetComponent<Circle>().ActualIndex;
-                        prev.GetComponent<Circle>().ActualIndex = next.GetComponent<Circle>().ActualIndex;
-                        next.GetComponent<Circle>().ActualIndex = tmpPlace;
+                        smallest = j;
                     }
                 }
+                Extension.Swap(Extension.GetObjectByActualPosition(objects, smallest), Extension.GetObjectByActualPosition(objects, i));
             }
         }
     }

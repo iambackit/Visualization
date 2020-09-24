@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Interfaces;
 using Assets.Scripts.Data;
+using Assets.Scripts.Computing;
 using UnityEngine;
 
 namespace Assets.Scripts.Shuffle
@@ -15,13 +16,7 @@ namespace Assets.Scripts.Shuffle
                 r0 = i;
                 r1 = circles.Length - 1 - i;
 
-                Vector2 r0Position = circles[r0].GetComponent<Circle>().Position;
-                circles[r0].GetComponent<Circle>().Position = circles[r1].GetComponent<Circle>().Position;
-                circles[r1].GetComponent<Circle>().Position = r0Position;
-
-                int r0Place = circles[r0].GetComponent<Circle>().ActualIndex;
-                circles[r0].GetComponent<Circle>().ActualIndex = circles[r1].GetComponent<Circle>().ActualIndex;
-                circles[r1].GetComponent<Circle>().ActualIndex = r0Place;
+                Extension.Swap(circles[r0], circles[r1]);
             }
         }
     }
