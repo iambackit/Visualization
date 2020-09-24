@@ -43,6 +43,20 @@ namespace Assets.Scripts.Sort
             second.GetComponent<Circle>().ActualIndex = tmpValue;
         }
 
+        protected void AddFade(GameObject[] objects)
+        {
+            foreach (GameObject item in objects)
+            {
+                Color c = item.GetComponent<Circle>().Color;
+                item.GetComponent<Circle>().Color = new Color(c.r, c.g, c.b, .65f);
+            }
+        }
+
+        protected void RemoveFade(GameObject go)
+        {
+            Color c = go.GetComponent<Circle>().Color;
+            go.GetComponent<Circle>().Color = new Color(c.r, c.g, c.b, 1f);
+        }
 
         protected GameObject GetObjectByActualPosition(GameObject[] objects, int idx)
         {

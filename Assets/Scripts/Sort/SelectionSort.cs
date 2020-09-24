@@ -12,6 +12,7 @@ namespace Assets.Scripts.Sort
         public override IEnumerator Sort(GameObject[] objects)
         {
             IsFinished = false;
+            this.AddFade(objects);
 
             for (int i = 0; i < objects.Length - 1; i++)
             {
@@ -28,12 +29,17 @@ namespace Assets.Scripts.Sort
                         min = GetObjectByActualPosition(objects, j);
                         minIdx = j;
                     }
+
+                    yield return new WaitForSeconds(Time);
                 }
 
                 this.SwapPosition(act, min);
                 this.SwapIndex(act, min);
-                yield return new WaitForSeconds(Time);
+                this.RemoveFade(min);
             }
+
+            this.RemoveFade(objects[objects.Length - 1]);
+
 
             IsFinished = true;
         }
