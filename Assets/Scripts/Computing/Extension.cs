@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Assets.Scripts.Enums
 {
-    public static class EnumExtension
+    public static class Extension
     {
         public static T Next<T>(this T v) where T : struct
         {
