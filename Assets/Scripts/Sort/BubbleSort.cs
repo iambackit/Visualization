@@ -27,19 +27,8 @@ namespace Assets.Scripts.Sort
                     if (indicies[i] > indicies[i + 1])
                     {
                         this.SwapPosition(prev, next);
-                        //Vector2 tmpPosition = prev.GetComponent<Circle>().Position;
-                        //prev.GetComponent<Circle>().Position = next.GetComponent<Circle>().Position;
-                        //next.GetComponent<Circle>().Position = tmpPosition;
-
                         this.SwapValue(prev, next);
-                        //int tmpPlace = prev.GetComponent<Circle>().Value;
-                        //prev.GetComponent<Circle>().Value = next.GetComponent<Circle>().Value;
-                        //next.GetComponent<Circle>().Value = tmpPlace;
-
                         this.SwapIndex(indicies, i, i + 1);
-                        //int tmp = indicies[i];
-                        //indicies[i] = indicies[i + 1];
-                        //indicies[i + 1] = tmp;
                     }
 
                     yield return new WaitForSeconds(Time);
