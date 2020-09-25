@@ -14,6 +14,7 @@ namespace Assets.Scripts.Controllers
         {
             this._selectionSort = this.gameObject.AddComponent<SelectionSort>();
             this._bubbleSort = this.gameObject.AddComponent<BubbleSort>();
+            this._combSort = this.gameObject.AddComponent<CombSort>();
         }
         public IEnumerator Sort(CircleArray objects, Enums.Algorithm selectedSorting)
         {
@@ -23,6 +24,8 @@ namespace Assets.Scripts.Controllers
                     return this._selectionSort.Sort(objects);
                 case Enums.Algorithm.Bubble:
                     return this._bubbleSort.Sort(objects);
+                case Enums.Algorithm.Comb:
+                    return this._combSort.Sort(objects);
             }
 
             return null;
@@ -30,5 +33,6 @@ namespace Assets.Scripts.Controllers
 
         private SelectionSort _selectionSort;
         private BubbleSort _bubbleSort;
+        private CombSort _combSort;
     }
 }

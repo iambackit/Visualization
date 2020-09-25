@@ -3,6 +3,7 @@
     public enum Algorithm
     {
         Selection,
-        Bubble
+        Bubble,
+        Comb
     }
 }
