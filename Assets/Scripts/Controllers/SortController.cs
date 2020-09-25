@@ -15,6 +15,7 @@ namespace Assets.Scripts.Controllers
             this._selectionSort = this.gameObject.AddComponent<SelectionSort>();
             this._bubbleSort = this.gameObject.AddComponent<BubbleSort>();
             this._combSort = this.gameObject.AddComponent<CombSort>();
+            this._mergeSort = this.gameObject.AddComponent<MergeSort>();
         }
         public IEnumerator Sort(CircleArray objects, Enums.Algorithm selectedSorting)
         {
@@ -26,6 +27,8 @@ namespace Assets.Scripts.Controllers
                     return this._bubbleSort.Sort(objects);
                 case Enums.Algorithm.Comb:
                     return this._combSort.Sort(objects);
+                case Enums.Algorithm.Merge:
+                    return this._mergeSort.Sort(objects);
             }
 
             return null;
@@ -34,5 +37,6 @@ namespace Assets.Scripts.Controllers
         private SelectionSort _selectionSort;
         private BubbleSort _bubbleSort;
         private CombSort _combSort;
+        private MergeSort _mergeSort;
     }
 }
