@@ -20,6 +20,7 @@ namespace Assets.Scripts.Computing
             this._objectCount = this._cols * this._rows;
 
             this._circles = new CircleArray(this._objectCount);
+            Extension.CircleCount = this._objectCount;
         }
 
         public CircleArray GenerateObjects()

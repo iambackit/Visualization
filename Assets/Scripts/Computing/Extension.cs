@@ -9,6 +9,7 @@ namespace Assets.Scripts.Computing
 {
     public static class Extension
     {
+        public static int CircleCount { get; set; }
         public static T Next<T>(this T v) where T : struct
         {
             return Enum.GetValues(v.GetType()).Cast<T>().Concat(new[] { default(T) }).SkipWhile(e => !v.Equals(e)).Skip(1).First();
@@ -40,6 +41,9 @@ namespace Assets.Scripts.Computing
             int tmpValue = aCircle.ActualIndex;
             aCircle.ActualIndex = bCircle.ActualIndex;
             bCircle.ActualIndex = tmpValue;
+
+            CalculateSizeBasedOnPosition(a, aCircle);
+            CalculateSizeBasedOnPosition(b, bCircle);
         }
 
         public static GameObject GetObjectByActualPosition(CircleArray objects, int idx)
@@ -67,6 +71,15 @@ namespace Assets.Scripts.Computing
             Circle circle = go.GetComponent<Circle>();
             Color c = circle.Color;
             circle.Color = new Color(c.r, c.g, c.b, 1f);
+        }
+
+        private static void CalculateSizeBasedOnPosition(GameObject go, Circle circle)
+        {
+            int relativeMaxDiff = Mathf.Max(Math.Abs(circle.OriginalIndex - 0), Math.Abs(circle.OriginalIndex - (CircleCount - 1)));
+            int diff = Math.Abs(circle.OriginalIndex - circle.ActualIndex);
+            float relativeDiff = (float)diff / relativeMaxDiff;
+            relativeDiff = 1 - relativeDiff;
+            go.transform.localScale = new Vector2(1 * relativeDiff, 1 * relativeDiff);
         }
     }
 }

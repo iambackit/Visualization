@@ -96,4 +96,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _position: {x: 0, y: 0}
-  _value: 0
+  _actualIndex: 0
+  _originalIndex: 0
