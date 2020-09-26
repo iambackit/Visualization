@@ -10,7 +10,6 @@ namespace Assets.Scripts.Sort
         public override IEnumerator Sort(CircleArray objects)
         {
             IsFinished = false;
-            Extension.AddFade(objects);
 
             double gap = objects.Length;
             bool swaps = true;
@@ -35,8 +34,6 @@ namespace Assets.Scripts.Sort
                     {
                         Extension.Swap(iGO, igapGO);
                         swaps = true;
-                        Extension.RemoveFade(iGO);
-                        Extension.RemoveFade(igapGO);
                     }
 
                     ++i;

@@ -13,7 +13,6 @@ namespace Assets.Scripts.Sort
         public override IEnumerator Sort(CircleArray objects)
         {
             IsFinished = false;
-            Extension.AddFade(objects);
 
             int smallest;
             for (int i = 0; i < objects.Length - 1; i++)
@@ -28,9 +27,7 @@ namespace Assets.Scripts.Sort
                     yield return new WaitForSeconds(Time);
                 }
                 Extension.Swap(Extension.GetObjectByActualPosition(objects, smallest), Extension.GetObjectByActualPosition(objects, i));
-                Extension.RemoveFade(Extension.GetObjectByActualPosition(objects, i));
             }
-            Extension.RemoveFade(Extension.GetObjectByActualPosition(objects, objects.Length - 1));
 
             IsFinished = true;
         }

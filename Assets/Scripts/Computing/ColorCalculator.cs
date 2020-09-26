@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Computing
 {
@@ -19,5 +20,10 @@ namespace Assets.Scripts.Computing
         }
 
         public Color GenerateRandomColor => new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+
+        public void SetColorToButton(Button b, Color c)
+        {
+            b.GetComponent<Image>().color = new Color(c.r, c.g, c.b, 1f);
+        }
     }
 }

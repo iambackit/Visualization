@@ -12,8 +12,6 @@ namespace Assets.Scripts.Sort
         public override IEnumerator Sort(CircleArray objects)
         {
             IsFinished = false;
-
-            Extension.AddFade(objects);
             int tmpIdx = objects.Length - 1;
 
             for (int p = 0; p < objects.Length - 2; p++)
@@ -31,13 +29,8 @@ namespace Assets.Scripts.Sort
                     yield return new WaitForSeconds(Time);
                 }
 
-                GameObject lastSorted = Extension.GetObjectByActualPosition(objects, tmpIdx);
-                Extension.RemoveFade(lastSorted);
                 tmpIdx--;
             }
-
-            Extension.RemoveFade(objects[1]);
-            Extension.RemoveFade(objects[0]);
 
             IsFinished = true;
         }

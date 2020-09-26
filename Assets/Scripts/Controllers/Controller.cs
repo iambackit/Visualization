@@ -12,6 +12,11 @@ namespace Assets.Scripts.Controllers
     {
         public GameObject CirclePrefab;
         public Slider SliderSpeed;
+        public Button ButtonBackShuffle;
+        public Button ButtonForwardShuffle;
+        public Button ButtonBackAlgorithm;
+        public Button ButtonForwardAlgorithm;
+
         public Color Start;
         public Color End;
         void Awake()
@@ -29,6 +34,10 @@ namespace Assets.Scripts.Controllers
             this._colorCalculator = this.gameObject.AddComponent<ColorCalculator>();
             this._colorCalculator.Start = Start;
             this._colorCalculator.End = End;
+            this._colorCalculator.SetColorToButton(ButtonBackShuffle, Start);
+            this._colorCalculator.SetColorToButton(ButtonForwardShuffle, End);
+            this._colorCalculator.SetColorToButton(ButtonBackAlgorithm, Start);
+            this._colorCalculator.SetColorToButton(ButtonForwardAlgorithm, End);
             this._circleGenerator.ColorCalculator = this._colorCalculator;
 
             this._circles = this._circleGenerator.GenerateObjects();
