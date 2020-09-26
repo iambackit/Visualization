@@ -9,8 +9,6 @@ namespace Assets.Scripts.Sort
     {
         public override IEnumerator Sort(CircleArray objects)
         {
-            IsFinished = false;
-
             double gap = objects.Length;
             bool swaps = true;
 
@@ -40,8 +38,6 @@ namespace Assets.Scripts.Sort
                     yield return new WaitForSeconds(Time);
                 }
             }
-
-            IsFinished = true;
         }
     }
 }
