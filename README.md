@@ -4,7 +4,7 @@
 * [Product](#product)
 
 ## Introduction
-The project was made in **Unity 2020.1.3f1**.
+The project was made in **Unity 2020.1.3f1**. To open the project, find the **SampleScene.unity** in the **Assets/Scenes** folder and open it.
 
 The goal of this project is to **visualize sorting algorithms**, at the moment it contains 4 which are:
 - selection sorting
